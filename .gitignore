@@ -1,1 +1,11 @@
+#ignore all the example executables and (for now) sources
+ex*
+
+#don't ignore parent-folders
+!/**/
+
+#override initial ex* ignore rule so we don't ignore example source files
+!ex*.*
+
+#ignore emacs backup files
 *~
