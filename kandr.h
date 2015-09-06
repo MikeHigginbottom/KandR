@@ -3,5 +3,6 @@
 
 int mygetline(char line[], int maxChars);
 void copy(char to[], char from[]);
+void reverse(char s[]);
 
 #endif //_kandr_h

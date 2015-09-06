@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "kandr.h"
 
 /*
@@ -35,3 +36,18 @@ void copy(char to[], char from[]) {
     ++i;
   }
 }
+
+/*
+Reverse and return the passed in string
+*/
+void reverse(char s[]) {
+  int len = strlen(s) ;
+  int temp, front, back;
+  for (front = 0, back = len-1; front < back; front++, back--)
+    {
+      temp = s[front];
+      s[front] = s[back];
+      s[back] = temp;
+    }
+}
+
