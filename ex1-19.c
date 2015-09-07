@@ -5,10 +5,10 @@
 
 int main(void)
 {
-	char line[MAXLINE];
-	while (mygetline(line, MAXLINE) > 0) {
-		reverse(line);
-		printf("'%s'\n", line);
-	}
-	return 0;
+  char line[MAXLINE];
+  while (mygetline(line, MAXLINE) > 0) {
+    reverse(line);
+    printf("'%s'\n", line);
+  }
+  return 0;
 }

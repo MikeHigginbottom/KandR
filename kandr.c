@@ -51,3 +51,26 @@ void reverse(char s[]) {
     }
 }
 
+/*
+Replace tabs in the input with the proper number of
+blanks to space to the next tab stop.
+Assume a fixed set of tab stops, every tabWidth columns.
+*/
+
+char *detabify(char input[], char output[], int tabWidth) {
+  int inchpos, outchpos, wsreqd, wschpos;
+  int len = strlen(input);
+  for (inchpos = 0, outchpos = 0; inchpos < len; ++inchpos) {
+    if (input[inchpos] != '\t') {
+      output[outchpos++] = input[inchpos];
+    }
+    else {
+      wsreqd = tabWidth - (outchpos % tabWidth);
+      for (wschpos = 1; wschpos <= wsreqd; ++wschpos)
+	output[outchpos++] = ' ';
+    }
+  }
+  output[outchpos] = '\0';
+  return output;
+} 
+
