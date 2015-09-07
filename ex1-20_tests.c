@@ -6,8 +6,7 @@
 #define MAXLINE 1000
 #define TABWIDTH 4
 
-int testEmptyInput()
-{
+int testEmptyInput(void) {
   char *input = "";
   char *expected = "";
   char output[MAXLINE] = "";
@@ -15,8 +14,7 @@ int testEmptyInput()
   tf_passed();
 }
 
-int testNoTabs()
-{
+int testNoTabs(void) {
   char *input = "abcdefghi";
   char *expected = "abcdefghi";
   char output[MAXLINE];
@@ -24,8 +22,7 @@ int testNoTabs()
   tf_passed();
 }
 
-int testFirstCharTab()
-{
+int testFirstCharTab(void) {
   char *input = "\tabcdefghi";
   char *expected = "    abcdefghi";
   char output[MAXLINE] = "";
@@ -33,8 +30,7 @@ int testFirstCharTab()
   tf_passed();
 }
 
-int testSecondCharTab()
-{
+int testSecondCharTab(void) {
   char *input = "a\tbcdefghi";
   char *expected = "a   bcdefghi";
   char output[MAXLINE] = "";
@@ -42,8 +38,7 @@ int testSecondCharTab()
   tf_passed();
 }
 
-int testThirdCharTab()
-{
+int testThirdCharTab(void) {
   char *input = "ab\tcdefghi";
   char *expected = "ab  cdefghi";
   char output[MAXLINE] = "";
@@ -51,8 +46,7 @@ int testThirdCharTab()
   tf_passed();
 }
 
-int testFourthCharTab()
-{
+int testFourthCharTab(void) {
   char *input = "abc\tdefghi";
   char *expected = "abc defghi";
   char output[MAXLINE] = "";
@@ -60,8 +54,7 @@ int testFourthCharTab()
   tf_passed();
 }
 
-int testFifthCharTab()
-{
+int testFifthCharTab(void) {
   char *input = "abcd\tefghi";
   char *expected = "abcd    efghi";
   char output[MAXLINE] = "";
@@ -69,8 +62,7 @@ int testFifthCharTab()
   tf_passed();
 }
 
-int testConsecutiveTabs()
-{
+int testConsecutiveTabs(void) {
   char *input = "ab\t\tcdefghi";
   char *expected = "ab      cdefghi";
   char output[MAXLINE] = "";
@@ -78,16 +70,16 @@ int testConsecutiveTabs()
   tf_passed();
 }
 
-void test_suite() {
-	tf_init_suite();
-	tf_run_test(testEmptyInput);
-	tf_run_test(testNoTabs);
-	tf_run_test(testFirstCharTab);
-	tf_run_test(testSecondCharTab);
-	tf_run_test(testThirdCharTab);
-	tf_run_test(testFourthCharTab);
-	tf_run_test(testFifthCharTab);
-	tf_run_test(testConsecutiveTabs);
+void test_suite(void) {
+  tf_init_suite();
+  tf_run_test(testEmptyInput);
+  tf_run_test(testNoTabs);
+  tf_run_test(testFirstCharTab);
+  tf_run_test(testSecondCharTab);
+  tf_run_test(testThirdCharTab);
+  tf_run_test(testFourthCharTab);
+  tf_run_test(testFifthCharTab);
+  tf_run_test(testConsecutiveTabs);
 }
 
 tf_run_suite(test_suite);
