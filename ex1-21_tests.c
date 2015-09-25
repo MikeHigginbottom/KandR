@@ -6,50 +6,6 @@
 #define MAXLINE 1000
 #define TABWIDTH 4
 
-/*
-Replace strings of blanks by the minimum number of
-tabs and blanks to achieve the same spacing.
-When either a tab or a single blank would suffice to
-reach a tab stop, use a tab
-*/
-char *entab(char input[], char output[], int tabWidth) {
-  int inchpos, outchpos, startpos, inblanks;
-  int tabs, blanks;
-  int blanksRequired;
-  int firstTabBuys;
-  int extraTabsReqd;
-  startpos = 0;
-  inblanks = 0;
-  outchpos = 0;
-  for (inchpos = 0; inchpos < strlen(input); ++inchpos) {
-    if (input[inchpos] != ' ') {
-      if (inblanks) {
-	blanksRequired = inchpos - startpos;
-	firstTabBuys = tabWidth - (startpos % tabWidth);
-	if (firstTabBuys <= blanksRequired) {
-	  output[outchpos++] = '\t';
-	  blanksRequired -= firstTabBuys;
-	}
-	extraTabsReqd = blanksRequired / tabWidth;
-	for (tabs = 1; tabs <= extraTabsReqd; ++tabs) {
-	  output[outchpos++] = '\t';
-	  blanksRequired -= tabWidth;
-	}
-	for (blanks = 1; blanks <= blanksRequired; ++blanks) {
-	  output[outchpos++] = '.';
-	}
-      }
-      output[outchpos++] = input[inchpos];
-      inblanks = 0;
-    }
-    else if (!inblanks) {
-      startpos = inchpos;
-      inblanks = 1;
-    }
-  }
-  return output;
-}
-
 int testEmptyInput(void) {
   char *input = "";
   char *expected = "";
