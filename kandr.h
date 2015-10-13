@@ -6,5 +6,6 @@ void copy(char to[], char from[]);
 void reverse(char s[]);
 char *detab(char input[], char output[], int tabWidth);
 char *entab(char input[], char output[], int tabWidth);
+char *fold(char input[], char output[], int requestedFoldPoint);
 
 #endif //_kandr_h
